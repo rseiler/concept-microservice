@@ -1,0 +1,20 @@
+server:
+  port: ${vcap.application.port:9092}
+
+info:
+  component: Turbine
+
+turbine:
+  appConfig: frontend-service
+  clusterNameExpression: 'default'
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${vcap.services.eureka-service.credentials.uri:http://127.0.0.1:8761}/eureka/
+  instance:
+    leaseRenewalIntervalInSeconds: 10
+
+---
+spring:
+  profiles: cloud

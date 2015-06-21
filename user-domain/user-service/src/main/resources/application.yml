@@ -1,0 +1,33 @@
+server:
+  port: ${vcap.application.port:0}
+
+endpoints.shutdown.enabled: true
+
+LOG_FILE: user-service.log
+log_file: user-service.log
+logging.LOG_FILE: user-service.log
+logging.log_file: user-service.log
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${vcap.services.eureka-service.credentials.uri:http://127.0.0.1:8761}/eureka/
+  instance:
+    leaseRenewalIntervalInSeconds: 3
+    metadataMap:
+      instanceId: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+
+spring:
+  jackson:
+    deserialization:
+      ACCEPT_SINGLE_VALUE_AS_ARRAY: true
+      FAIL_ON_UNKNOWN_PROPERTIES: false
+
+---
+spring:
+  profiles: cloud
+
+eureka:
+  instance:
+    hostname: ${APPLICATION_DOMAIN}
+    nonSecurePort: 80

@@ -1,0 +1,13 @@
+server:
+  port: ${vcap.application.port:8761}
+
+
+
+eureka:
+  enableSelfPreservation: false
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
+  server:
+    waitTimeInMsWhenSyncEmpty: 0
+    enableSelfPreservation: false

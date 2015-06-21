@@ -1,0 +1,34 @@
+#if($shoppingCart)
+<table>
+    <tr>
+        <td>id:</td>
+        <td>$shoppingCart.Id</td>
+    </tr>
+    <tr>
+        <td>name:</td>
+        <td>$shoppingCart.Name</td>
+    </tr>
+    <tr>
+        <td>items:</td>
+        <td>
+            <table>
+                <tr>
+                    <td>creation date</td>
+                    <td>name</td>
+                    <td>price</td>
+                </tr>
+
+                #foreach($item in $shoppingCart.Items)
+                    <tr>
+                        <td>$item.CreationDate</td>
+                        <td>$item.Product.Name</td>
+                        <td>$item.Product.Price</td>
+                    </tr>
+                #end
+            </table>
+        </td>
+    </tr>
+</table>
+#else
+Shopping cart couldn't be loaded.
+#end

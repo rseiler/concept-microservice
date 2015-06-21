@@ -1,0 +1,18 @@
+#if($product)
+    <table>
+        <tr>
+            <td>id:</td>
+            <td>$product.Id</td>
+        </tr>
+        <tr>
+            <td>name:</td>
+            <td>$product.Name</td>
+        </tr>
+        <tr>
+            <td>price:</td>
+            <td>$product.Price</td>
+        </tr>
+    </table>
+#else
+    Product couldn't be loaded.
+#end

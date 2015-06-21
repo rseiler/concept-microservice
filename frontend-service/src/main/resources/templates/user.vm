@@ -1,0 +1,18 @@
+#if($user)
+    <table>
+        <tr>
+            <td>id:</td>
+            <td>$user.Id</td>
+        </tr>
+        <tr>
+            <td>name:</td>
+            <td>$user.Name</td>
+        </tr>
+        <tr>
+            <td>age:</td>
+            <td>$user.Age</td>
+        </tr>
+    </table>
+#else
+    User couldn't be loaded.
+#end
